@@ -33,13 +33,23 @@ project-root/
 
 
 
+🛠 Tech Stack
 
+    Frontend
+        Vue3
+        Vite
+        TailwindCss
+        Pinia
+        Axios
+        Sweetalert2
 
-
-
-
-
-
+    Backend
+        Nodejs
+        Expressjs
+        Sequelize
+        Postgresql
+        bcrypt
+        JWT
 
 
 
@@ -67,3 +77,25 @@ project-root/
 
     email: test@email.com
     password: password123
+
+📡 API Endpoints
+
+    Authentication
+
+        POST /api/auth/login
+
+    Product
+
+        GET /api/products
+        GET /api/products/:slug
+        POST /api/products
+        PUT /api/products/:slug
+        DEL /api/products/:slug
+
+    Category
+
+        GET /api/categories
+        GET /api/categories/:slug
+        POST /api/categories
+        PUT /api/categories/:slug
+        DEL /api/categories/:slug

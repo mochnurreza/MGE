@@ -20,11 +20,11 @@
               />
               <BaseInput v-model="form.description" label="Description" placeholder="Description" />
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="flex m-4 space-x-4">
               <Buttons variant="red" @click.prevent="cancel"> Cancel </Buttons>
 
               <Buttons type="submit">
-                {{ mode === 'edit' ? 'Update' : 'Save' }}
+                {{ isEdit === true ? 'Update' : 'Save' }}
               </Buttons>
             </div>
           </form>

@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded">
-    <div class="rounded bg-white mb-0 px-4 py-3 border-0">
+    <div class="rounded bg-blueGray-100 mb-0 px-4 py-3 border-0">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
           <h3 class="font-semibold text-lg mb-6">
@@ -14,7 +14,7 @@
               <Buttons variant="red" @click.prevent="cancel"> Cancel </Buttons>
 
               <Buttons @click="handleSubmit">
-                {{ mode === 'edit' ? 'Update' : 'Save' }}
+               {{ isEdit === true ? 'Update' : 'Save' }}
               </Buttons>
             </div>
           </form>
