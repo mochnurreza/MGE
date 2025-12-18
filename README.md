@@ -1,5 +1,5 @@
 # MGE
-
+```
 project-root/
 ├─ backend/
 │  ├─ config/
@@ -29,6 +29,19 @@ project-root/
 │  ├─ .env
 │  ├─ .env.example
 │  └─ package.json
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 🚀 Features
@@ -51,3 +64,6 @@ project-root/
     cd frontend-MGE
     npm install
     npm run dev
+
+    email: test@email.com
+    password: password123
