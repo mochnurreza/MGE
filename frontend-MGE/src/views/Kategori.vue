@@ -147,11 +147,6 @@ const goEdit = (slug) => {
 }
 
 const handleDelete = async (slug) => {
-  if(!confirm("kamu yakin")) return
-  try {
-    await categoriesStore.deleteCategory(slug)
-  } catch (err) {
-    alert("Gagal menghapus kategori");
-  }
+  await categoriesStore.deleteCategory(slug)
 }
 </script>
