@@ -31,6 +31,19 @@ project-root/
 │  └─ package.json
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 🚀 Features
 
     Authentication (Login / Logout)
@@ -51,3 +64,6 @@ project-root/
     cd frontend-MGE
     npm install
     npm run dev
+
+    email: test@email.com
+    password: password123
