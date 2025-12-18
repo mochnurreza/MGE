@@ -1,5 +1,5 @@
 # MGE
-
+```
 project-root/
 ├─ backend/
 │  ├─ config/
@@ -29,7 +29,7 @@ project-root/
 │  ├─ .env
 │  ├─ .env.example
 │  └─ package.json
-
+```
 
 
 
