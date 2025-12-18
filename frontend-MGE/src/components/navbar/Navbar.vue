@@ -8,7 +8,7 @@
     >
       <!-- Brand -->
       <a
-        class="text-yellow-50 font-staatliches text-lg uppercase hidden lg:inline-block font-semibold"
+        class="text-yellow-50 text-lg uppercase hidden lg:inline-block font-semibold"
         href="javascript:void(0)"
       >
         Dashboard

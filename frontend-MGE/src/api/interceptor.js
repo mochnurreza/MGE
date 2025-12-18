@@ -2,9 +2,6 @@ import axios from "axios";
 
 export const baseURL = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
 
 baseURL.interceptors.request.use((config) => {
@@ -12,6 +9,11 @@ baseURL.interceptors.request.use((config) => {
   if(token) {
     config.headers['Authorization'] = `Bearer ${token}`;
   }
+
+  if (!(config.data instanceof FormData)) {
+      config.headers["Content-Type"] = "application/json";
+    }
+
   return config;
 }, (error) => {
   return Promise.reject(error);

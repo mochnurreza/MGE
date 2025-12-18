@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded">
-    <div class="rounded bg-white mb-0 px-4 py-3 border-0">
+    <div class="rounded bg-blueGray-100 mb-0 px-4 py-3 border-0">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
           <h3 class="font-semibold text-lg mb-6">
@@ -19,12 +19,6 @@
                 value-key="id"
               />
               <BaseInput v-model="form.description" label="Description" placeholder="Description" />
-              <Upload
-                v-model="form.image"
-                label="Product Image"
-                placeholder="Upload product image"
-                accept="image/*"
-              />
             </div>
             <div class="flex items-center space-x-4">
               <Buttons variant="red" @click.prevent="cancel"> Cancel </Buttons>
@@ -92,7 +86,6 @@ onMounted(async() => {
     form.categoryId = product.category
       ? product.category.id
       : ""
-    form.image = null
   }
 
 })

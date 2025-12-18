@@ -50,17 +50,14 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 
 const props = defineProps({
   modelValue: {
     type: [File, String, null],
     default: null,
   },
-  label: {
-    type: String,
-    default: "",
-  },
+  label: String,
   placeholder: {
     type: String,
     default: "Upload file",
@@ -68,10 +65,6 @@ const props = defineProps({
   accept: {
     type: String,
     default: "image/*",
-  },
-  error: {
-    type: String,
-    default: "",
   },
 });
 
@@ -81,42 +74,28 @@ const fileInput = ref(null);
 const preview = ref(null);
 
 const trigger = () => {
-  fileInput.value.click();
+  fileInput.value?.click();
+};
+
+const cleanupPreview = () => {
+  if (preview.value?.startsWith("blob:")) {
+    URL.revokeObjectURL(preview.value);
+  }
 };
 
 const onFileChange = (e) => {
   const file = e.target.files[0];
   if (!file) return;
 
+  cleanupPreview();
+  preview.value = URL.createObjectURL(file);
+
   emit("update:modelValue", file);
+  e.target.value = "";
 };
 
-const isImage = computed(() =>
-  props.modelValue?.type?.startsWith("image")
-);
+const isImage = computed(() => !!preview.value);
 
-const fileName = computed(() => {
-  if (props.modelValue instanceof File) {
-    return props.modelValue.name;
-  }
-  if (typeof props.modelValue === "string") {
-    return props.modelValue.split("/").pop();
-  }
-  return "";
-});
-
-// preview for image
-watch(
-  () => props.modelValue,
-  (val) => {
-    if (val instanceof File && val.type.startsWith("image")) {
-      preview.value = URL.createObjectURL(val);
-    } else if (typeof val === "string") {
-      preview.value = val;
-    } else {
-      preview.value = null;
-    }
-  },
-  { immediate: true }
-);
+onUnmounted(cleanupPreview);
 </script>
+

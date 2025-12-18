@@ -19,6 +19,7 @@ export const useProductStore = defineStore('product', {
         if (response.success === true) {
           this.products = response.data
         }
+        console.log(this.products)
       } catch (error) {
         this.error = error.message || error.message
       } finally {
@@ -38,11 +39,18 @@ export const useProductStore = defineStore('product', {
         formData.append('categoryId', payload.categoryId)
         formData.append('description', payload.description)
 
+         console.log("IMAGE PAYLOAD:", payload.image);
+         console.log("IS FILE:", payload.image instanceof File);
+
         if (payload.image instanceof File) {
           formData.append('image', payload.image)
         }
 
-        const response = await baseURL.post('/products/add', formData)
+         for (const pair of formData.entries()) {
+            console.log(pair[0], pair[1]);
+          }
+
+        const response = await baseURL.post('/products', formData)
 
         if (response.success) {
           this.products.unshift(response.data)

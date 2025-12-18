@@ -8,7 +8,7 @@
           <div class="rounded-t mb-0 px-6 py-6">
             <div class="text-center mb-3">
               <h6 class="text-slate-100 text-sm font-bold">
-                Sign in with
+                Sign in
               </h6>
             </div>
             <hr class="mt-6 border-b-1 text-white border-blueGray-300" />
@@ -30,18 +30,6 @@
                     id="password"
                     placeholder="Password"
                     required />
-              <!-- <div>
-                <label class="inline-flex items-center cursor-pointer">
-                  <input
-                    id="customCheckLogin"
-                    type="checkbox"
-                    class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                  />
-                  <span class="ml-2 text-sm font-semibold text-blueGray-600">
-                    Remember me
-                  </span>
-                </label>
-              </div> -->
 
               <div class="text-center mt-6">
                 <Buttons type="submit" :loading="authStore.loading">Sign In</Buttons>
@@ -53,11 +41,6 @@
           </div>
         </div>
         <div class="flex flex-wrap mt-6 relative">
-          <!-- <div class="w-1/2">
-            <a href="javascript:void(0)" class="text-blueGray-200">
-              <small>Forgot password?</small>
-            </a>
-          </div> -->
           <div class="w-1/2 text-left">
             <router-link to="/auth/register" class="text-green-500 font-medium">
               <small>Create new account</small>

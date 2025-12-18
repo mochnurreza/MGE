@@ -3,7 +3,7 @@ import { createProduct, getAllProducts, getProductById, updateProduct, deletePro
 import upload from '../utils/multer.js'
 const router = express.Router();
 
-router.post("/add", upload.single("image"), createProduct);
+router.post("/", upload.single("image"), createProduct);
 router.get("/", getAllProducts);
 router.get("/:slug", getProductById);
 router.put("/:slug", upload.single("image"), updateProduct);
