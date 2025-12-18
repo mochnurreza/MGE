@@ -9,18 +9,15 @@
       @change="onChange"
       class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
     >
-      <!-- Placeholder -->
       <option value="" disabled>
         {{ placeholder }}
       </option>
 
-      <!-- Options -->
       <option v-for="option in options" :key="option[valueKey]" :value="option[valueKey]">
         {{ option[labelKey] }}
       </option>
     </select>
 
-    <!-- Error -->
     <p v-if="error" class="text-red-500 text-xs mt-1">
       {{ error }}
     </p>
