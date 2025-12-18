@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { baseURL } from '../api/interceptor.js'
 import { notifySuccess, notifyError } from "../utils/notify.js"
+import { confirmDelete } from "../utils/confirmation.js";
 
 export const useCategoriesStore = defineStore('category', {
   state: () => ({
@@ -65,16 +66,16 @@ export const useCategoriesStore = defineStore('category', {
     },
 
     async deleteCategory(slug) {
-      this.loading = true
-      this.error = null
-
+      const confirmed = await confirmDelete();
+      if (!confirmed) return;
       try {
         const response = await baseURL.delete(`/categories/${slug}`)
         if (response.success) {
           this.categories = this.categories.filter((c) => c.slug !== slug)
         }
+         notifySuccess('Data deleted')
       } catch (error) {
-        this.error = error.message || 'Failed to delete category'
+         notifySuccess(error.message)
         throw error
       } finally {
         this.loading = false
